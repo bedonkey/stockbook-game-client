@@ -1,0 +1,19 @@
+.result {
+    min-height: 220px;
+}
+.share {
+    width: 120px;
+    margin-top: 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    background: #4066b1;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.share a {
+    color: white;
+    text-decoration: none;
+}
