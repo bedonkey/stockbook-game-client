@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router'
 import './index.css';
 
 class UserPicture extends Component {
 
     constructor() {
         super();
+        document.title = '2018 Bạn đầu tư thế nào?';
         this.state = {
-            player: localStorage.getItem('player') ? localStorage.getItem('player') : null
+            player: localStorage.getItem('player') ? localStorage.getItem('player') : null,
+            userid: localStorage.getItem('userid') ? localStorage.getItem('userid') : null
+        }
+    }
+
+    componentDidMount() {
+        console.log(this.state.player)
+        console.log(this.props.params.user)
+        if (!this.state.player || !this.props.params.user || (this.state.userid != this.props.params.user)) {
+            browserHistory.push('/');
         }
     }
 
@@ -17,7 +28,8 @@ class UserPicture extends Component {
         let imgUrl = 'http://localhost:3333/images/results/' + this.props.params.user + '.jpg';
         return(
             <div>
-                <h2>Kết quả đàu tư của {this.state.player}</h2>  
+                <h1>Nhấp vào để xem năm này bạn thành công đến mức nào nhé!</h1>
+                <h2>Kết quả đầu tư của {this.state.player}</h2>  
                 <div className="result">
                     <img src={imgUrl} />
                 </div>

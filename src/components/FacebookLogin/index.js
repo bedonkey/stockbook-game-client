@@ -69,6 +69,7 @@ class FacebookLogin extends Component{
             })
             .then(function (response) {
                 localStorage.setItem('player', user.name)
+                localStorage.setItem('userid', user.id)
                 browserHistory.push('/user/' + user.id);
             })
             .catch(function (error) {
